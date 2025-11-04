@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Book Appointments - CareWell Hospital</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">CareWell Hospital</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="appointments.html">Appointments</a></li>
+        <li><a href="my-appointments.html">My Appointments</a></li>
+        <li><a href="login.html" id="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="max-width">
+    <section class="page-header">
+      <h1>Book an Appointment</h1>
+      <p>Choose a doctor, pick a date/time & confirm. You can sign in during booking.</p>
+    </section>
+
+    <section id="doctors-grid" class="service-grid" style="padding: 20px 0;">
+      <!-- Doctor cards injected by JS -->
+    </section>
+  </main>
+
+  <!-- Booking Modal -->
+  <div id="booking-modal" class="modal-hidden" aria-hidden="true">
+    <div class="modal-card">
+      <button id="modal-close" class="modal-close">✕</button>
+      <h3 id="modal-doctor-name">Doctor Name</h3>
+      <p id="modal-doctor-specialty" class="muted"></p>
+
+      <div id="auth-prompt" class="auth-area">
+        <p>If you already have an account, <strong>Login</strong> or <strong>Sign Up</strong> to save your appointment.</p>
+        <div class="modal-actions">
+          <a href="login.html" class="btn-primary">Login</a>
+          <a href="login.html" class="btn-outline">Sign Up</a>
+        </div>
+        <hr />
+        <p class="muted">Or continue as guest (appointment will be stored locally).</p>
+      </div>
+
+      <div class="booking-area">
+        <label>Pick a date</label>
+        <input type="date" id="appt-date" class="input" />
+        <label>Pick a time</label>
+        <input type="time" id="appt-time" class="input" />
+
+        <label>Your notes (optional)</label>
+        <textarea id="appt-notes" rows="3" class="input" placeholder="Reason for visit, symptoms..."></textarea>
+
+        <div class="modal-actions" style="margin-top:12px;">
+          <button id="confirm-booking" class="btn-primary">Confirm Appointment</button>
+          <button id="cancel-booking" class="btn-outline">Cancel</button>
+        </div>
+
+        <p id="booking-feedback" class="muted" style="margin-top:10px;"></p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 CareWell Hospital</p>
+  </footer>
+
+  <!-- Supabase JS SDK (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="appointments.js"></script>
+</body>
+</html>
